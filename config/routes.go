@@ -3,7 +3,6 @@ package config
 import (
 	"github.com/naoina/kocha"
 	"kocha-sample/app/controller"
-	"kocha-sample/app/controller/post"
 )
 
 type RouteTable kocha.RouteTable
@@ -14,17 +13,17 @@ var routes = RouteTable{
 		Path:       "/",
 		Controller: &controller.Root{},
 	}, {
-		Name:       "post",
+		Name:       "post/index",
 		Path:       "/post",
 		Controller: &controller.Post{},
 	}, {
-		Name:       "post_detail",
+		Name:       "post/detail",
 		Path:       "/post/:id",
-		Controller: &post.Detail{},
+		Controller: &controller.PostDetail{},
 	}, {
-		Name:       "post_edit",
+		Name:       "post/edit",
 		Path:       "/post/edit/:id",
-		Controller: &post.Edit{},
+		Controller: &controller.PostEdit{},
 	},
 }
 
