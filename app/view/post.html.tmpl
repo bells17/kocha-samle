@@ -1,0 +1,18 @@
+<h1>This is {{ $.ControllerName }}'s Controller</h1>
+
+<h2>New Post</h2>
+<form action="/post" method="post">
+	<input type="text" name="title" value=""></input>
+	<br>
+	<textarea name="content" rows="4" cols="40"></textarea>
+	<br>
+	<input type="submit" value="作成">
+</form>
+
+<h2>Posts</h2>
+
+<ul>
+{{ range $.posts }}
+	<li>{{ .Title }} - {{ .Content }}</li>
+{{ end }}
+</ul>
