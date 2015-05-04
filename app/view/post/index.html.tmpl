@@ -13,6 +13,6 @@
 
 <ul>
 {{ range $.posts }}
-	<li>{{ .Title }} - {{ .Content }}</li>
+	<li><a href="/post/{{ .Id }}">{{ .Title }}</a> - {{ .Content }}</li>
 {{ end }}
 </ul>
