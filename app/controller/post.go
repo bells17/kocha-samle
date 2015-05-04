@@ -22,8 +22,10 @@ func (po *Post) GET(c *kocha.Context) error {
    	return c.RenderError(500, nil, nil)
   }
 
+  fmt.Printf("posts all %#v\n", posts)
+
   for key, value := range posts {
-    fmt.Printf("sample post %d: %v\n", key, value.Title)
+    fmt.Printf("sample post %d: %#v\n", key, value)
 	}
 
 	return c.Render(map[string]interface{}{
@@ -46,7 +48,7 @@ func (po *Post) POST(c *kocha.Context) error {
 	}
 	n, err := db.Get("default").Insert(obj)
 	fmt.Printf("insert n: %d\n", n)
-	fmt.Printf("insert err: %v\n", err)
+	fmt.Printf("insert err: %#v\n", err)
 	if err != nil {
 		return c.RenderError(500, nil, nil)
 	}

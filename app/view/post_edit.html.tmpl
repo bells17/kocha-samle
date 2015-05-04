@@ -1,0 +1,11 @@
+<h1>This is {{ $.ControllerName }}'s Controller</h1>
+
+<h2>Post Edit</h2>
+
+<form action="/post/edit/{{ $.post.Id }}" method="post">
+	<input type="text" name="title" value="{{ $.post.Title }}"></input>
+	<br>
+	<textarea name="content" rows="4" cols="40">{{ $.post.Content }}</textarea>
+	<br>
+	<input type="submit" value="更新">
+</form>
