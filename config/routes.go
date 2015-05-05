@@ -22,7 +22,7 @@ var routes = RouteTable{
 		Controller: &controller.PostDetail{},
 	}, {
 		Name:       "post/edit",
-		Path:       "/post/edit/:id",
+		Path:       "/post/:id/edit",
 		Controller: &controller.PostEdit{},
 	},
 }
