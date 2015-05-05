@@ -13,8 +13,7 @@ type Post struct {
 }
 
 func (this *Post) GET(c *kocha.Context) error {
-	postRepository := repository.Post{}
-	posts, err := postRepository.FindAll()
+	posts, err := repository.GetPost().FindAll()
   if err != nil {
    	return c.RenderError(500, nil, nil)
   }
@@ -47,8 +46,7 @@ type PostDetail struct {
 }
 
 func (this *PostDetail) GET(c *kocha.Context) error {
-	postRepository := repository.Post{}
-	post, err := postRepository.FindOne(c.Params.Get("id"))
+	post, err := repository.GetPost().FindOne(c.Params.Get("id"))
   if err != nil {
   	c.App.Logger.Error("Query error: ", err)
    	return c.RenderError(500, nil, nil)
@@ -70,8 +68,7 @@ type PostEdit struct {
 }
 
 func (this *PostEdit) GET(c *kocha.Context) error {
-	postRepository := repository.Post{}
-	post, err := postRepository.FindOne(c.Params.Get("id"))
+	post, err := repository.GetPost().FindOne(c.Params.Get("id"))
   if err != nil {
   	c.App.Logger.Error("Query error: ", err)
    	return c.RenderError(500, nil, nil)
@@ -88,8 +85,7 @@ func (this *PostEdit) GET(c *kocha.Context) error {
 }
 
 func (this *PostEdit) POST(c *kocha.Context) error {
-	postRepository := repository.Post{}
-	post, err := postRepository.FindOne(c.Params.Get("id"))
+	post, err := repository.GetPost().FindOne(c.Params.Get("id"))
   if err != nil {
   	c.App.Logger.Error("Query error: ", err)
    	return c.RenderError(500, nil, nil)

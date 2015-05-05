@@ -5,17 +5,24 @@ import (
 	"kocha-sample/app/model"
 )
 
-type Post struct {
+var instance *post
 
+func GetPost() *post {
+  if instance == nil {
+  	instance = &post{}
+  }
+  return instance
 }
 
-func (this *Post) FindAll() ([]model.Post, error) {
+type post struct {}
+
+func (this *post) FindAll() ([]model.Post, error) {
 	var posts []model.Post
 	err := db.Get("default").Select(&posts)
 	return posts, err
 }
 
-func (this *Post) FindOne(id string) (model.Post, error) {
+func (this *post) FindOne(id string) (model.Post, error) {
 	var post model.Post
 	var posts []model.Post
 	err := db.Get("default").Select(&posts, db.Get("default").Where("id", "=", id))
@@ -26,5 +33,3 @@ func (this *Post) FindOne(id string) (model.Post, error) {
 
   return post, err
 }
-
-
