@@ -2,7 +2,6 @@ package model
 
 import (
 	"github.com/naoina/genmai"
-	// "time"
 )
 
 type Post struct {
